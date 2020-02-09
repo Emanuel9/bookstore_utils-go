@@ -54,3 +54,11 @@ func NewRestError(message string, status int, error string, causes []interface{}
 		Causes:  causes,
 	}
 }
+
+func NewUnauthorizedError(message string) *RestError {
+	return &RestError{
+		Message: "unable to retrieve use information from given access_token",
+		Status: http.StatusUnauthorized,
+		Error: "unauthorized",
+	}
+}
